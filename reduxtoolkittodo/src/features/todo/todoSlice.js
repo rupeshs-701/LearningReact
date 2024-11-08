@@ -14,7 +14,8 @@ export const todoSlice = createSlice(
                     id:nanoid(),
                     text:action.payload
                 }
-            }
+            },
+            removeTodo:()=>{}
         }
     }
 )
