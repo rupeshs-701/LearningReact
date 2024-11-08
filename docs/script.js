@@ -11,8 +11,8 @@
   if(value=="crush1"){
     console.log("User entered crush1");
     const myImage = document.getElementById("myImage");
-    const imageUrl = `https://iili.io/dj8a0dJ.jpg`;
-    const hoverUrl = "https://m.media-amazon.com/images/I/61fagD4zWKL.jpg";
+    const imageUrl = `https://images.pexels.com/photos/7521429/pexels-photo-7521429.jpeg?auto=compress&cs=tinysrgb&w=1200&lazy=load`;
+    const hoverUrl = "https://images.pexels.com/photos/29040524/pexels-photo-29040524/free-photo-of-rustic-stone-architecture-in-ibiza-with-agave-plants.jpeg?auto=compress&cs=tinysrgb&w=1200&lazy=load";
     myImage.setAttribute("src", imageUrl);
     myImage.setAttribute("data-hover", hoverUrl);
     new Scene();
