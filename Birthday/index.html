@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    /* Custom animation for twinkle effect */
+    @keyframes twinkle {
+      0% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.1); }
+      100% { opacity: 0; transform: scale(0.9); }
+    }
+    .twinkle {
+      animation: twinkle 0.7s forwards;
+    }
+  </style>
+</head>
+<body class="flex justify-center items-center h-screen bg-cover bg-center overflow-hidden relative" style="background-image: url('/Birthday/lily.jpg'); font-family: Arial, sans-serif;">
+
+<!-- Birthday -->
+<h1 id="birthdayHeading" class="text-3xl font-bold text-black bg-pink-300 absolute top-10 left-1/2 transform -translate-x-1/2 transition-opacity duration-500">Happy Birthday Buddy ❤️ </h1>
+
+
+
+<!-- Love letter icon -->
+<img src="https://cdn-icons-png.flaticon.com/512/4038/4038669.png" id="loveLetterIcon" alt="Love Letter Icon"
+     class="absolute inset-1/2 transform -translate-x-1/2 -translate-y-1/2 cursor-pointer w-56 opacity-100 transition-opacity duration-500 z-10 ">
+
+<!-- Letter stack container -->
+<div class="letter-stack hidden w-11/12 max-w-lg mx-auto relative z-5">
+  <div class="letter flex-col bg-gray-300 border border-gray-400 rounded-lg shadow-lg my-5 overflow-hidden transition-opacity duration-500" style="z-index: 4;">
+    <img src="./angrywhite.png" alt="Solitary Sailboat" class="w-full h-full object-cover rounded-l-lg">
+    <div class="text-section px-5 py-4 flex-1 bg-gray-100 border-l-2 border-gray-400">
+      <h2 class="text-lg font-bold text-gray-800 mb-1">A Special Day Begins 🎉</h2>
+      <p class="text-sm text-gray-600">Today isn’t just another day; it’s the day the world was graced with your smile, kindness, and warmth! Wishing you endless happiness, laughter, and love. Here’s to the start of an amazing celebration!</p>
+    </div>
+  </div>
+
+  <div class="letter flex-col bg-gray-300 border border-gray-400 rounded-lg shadow-lg my-5 overflow-hidden transition-opacity duration-500 hidden" style="z-index: 3;">
+    <img src="./bwcool.png" alt="Minimalist Black and White Wall Art" class="w-full h-full object-cover rounded-l-lg">
+    <div class="text-section px-5 py-4 flex-1 bg-gray-100 border-l-2 border-gray-400">
+      <h2 class="text-lg font-bold text-gray-800 mb-1">My Partner-in-Crime 💀</h2>
+      <p class="text-sm text-gray-600">Here’s to the one who’s always had my back, through thick and thin. From late-night adventures to legendary stories, life’s a bit more thrilling with you around. Happy Birthday to the OG, the one who brings the fire to every room!</p>
+    </div>
+  </div>
+
+  <div class="letter flex-col bg-gray-300 border border-gray-400 rounded-lg shadow-lg my-5 overflow-hidden transition-opacity duration-500 hidden" style="z-index: 2;">
+    <img src="./jaipurvibe.png" alt="Tree Silhouette" class="w-full h-full object-cover rounded-l-lg">
+    <div class="text-section px-5 py-4 flex-1 bg-gray-100 border-l-2 border-gray-400">
+      <h2 class="text-lg font-bold text-gray-800 mb-1">The Magic You Bring ✨</h2>
+      <p class="text-sm text-gray-600">Every day with you is a gift, and today I celebrate how you bring magic into the lives of everyone around you. May this year be full of adventure, growth, and dreams come true!</p>
+    </div>
+  </div>
+
+  <div class="letter flex-col bg-gray-300 border border-gray-400 rounded-lg shadow-lg my-5 overflow-hidden transition-opacity duration-500 hidden" style="z-index: 1;">
+    <div class="relative w-full h-80 bg-cover bg-center rounded-l-lg" style="background-image: url('./sky.jpeg');">
+      <img src="./garba.png" alt="Rocky Mountain and Dry Field" class="object-contain w-full h-full rounded-l-lg">
+    </div>
+    <div class="text-section px-5 py-4 flex-1 bg-gray-100 border-l-2 border-gray-400">
+      <h2 class="text-lg font-bold text-gray-800 mb-1">A Year of Happiness Awaits 🌟</h2>
+      <p class="text-sm text-gray-600">As this special day unfolds, remember you’re loved, admired, and appreciated beyond words. I hope this year brings you all the success, laughter, and love you deserve. Happy Birthday, and may all your dreams come true!</p>
+    </div>
+  </div>
+</div>
+
+<!-- Message to display at the end -->
+<div id="endMessage" class="end-message hidden text-center text-2xl text-gray-800 bg-white bg-opacity-90 p-3 rounded-lg shadow-md absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">Hope you liked it ❤️</div>
+
+<script>
+  // Select elements
+  const loveLetterIcon = document.getElementById('loveLetterIcon');
+  const letterStack = document.querySelector('.letter-stack');
+  const letters = document.querySelectorAll('.letter');
+  const endMessage = document.getElementById('endMessage');
+
+  let currentCardIndex = 0;
+  let currentAudio = null; // Variable to track currently playing audio
+
+      // Show first card on love letter icon click
+  loveLetterIcon.addEventListener('click', () => {
+        loveLetterIcon.style.display = 'none'; // Hide love letter icon
+        document.getElementById('birthdayHeading').style.display='none' // Change the heading text
+        letterStack.classList.remove('hidden'); // Show letters stack
+        letters[currentCardIndex].classList.remove('hidden'); // Show the first letter
+        playCurrentAudio(); // Play audio for the first letter
+    });
+    
+
+
+  // Function to play audio for the current card
+  function playCurrentAudio() {
+    // Stop the currently playing audio if it exists
+    if (currentAudio) {
+      currentAudio.pause();
+      currentAudio.currentTime = 0; // Reset audio to start
+    }
+
+    // Get the new audio element for the current card
+    currentAudio = document.getElementById(`audio${currentCardIndex + 1}`);
+    currentAudio.play(); // Play the new audio
+  }
+
+  // Function to show the next card with twinkle effect
+  function showNextCard() {
+    // Stop the current audio when switching cards
+    if (currentAudio) {
+      currentAudio.pause();
+      currentAudio.currentTime = 0; // Reset the audio
+    }
+
+    // Show the twinkle effect for the current card
+    letters[currentCardIndex].classList.add('twinkle');
+
+    if (currentCardIndex < letters.length - 1) {
+      // Wait for the twinkle animation to finish
+      setTimeout(() => {
+        letters[currentCardIndex].classList.add('hidden');
+        currentCardIndex++;
+        letters[currentCardIndex].classList.remove('hidden');
+        playCurrentAudio(); // Play audio for the new current card
+      }, 700); // Matches animation duration
+    } else {
+      // Show end message after the last card
+      letters[currentCardIndex].classList.add('twinkle');
+      setTimeout(() => {
+        letters[currentCardIndex].classList.add('hidden');
+        endMessage.classList.remove('hidden'); // Show the end message
+        document.getElementById('displayAudio').play();
+      }, 700); // Matches animation duration
+    }
+  }
+
+  // Add click event to each card to trigger the effect
+  letters.forEach((letter, index) => {
+    letter.addEventListener('click', () => {
+      if (index === currentCardIndex) {
+        showNextCard();
+      }
+    });
+  });
+</script>
+
+<!-- Add this section before the closing </body> tag -->
+<audio id="audio1" src="./dtjt.mov"></audio>
+<audio id="audio2" src="./bdms.mov"></audio>
+<audio id="audio3" src="./ndn.mov"></audio>
+<audio id="audio4" src="./supemn.mov"></audio>
+<audio id="displayAudio" src="./kesi .mov"></audio>
+</body>
+</html>

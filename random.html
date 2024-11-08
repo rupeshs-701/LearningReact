@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Random Image Generator</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-slate-500">
+    <div class="flex flex-col">
+      <div class="bg-pink-500 static w-screen h-auto my-2 px-0">
+        <h1 class="text-3xl text-center">This is a Random Image Generator</h1>
+      </div>
+
+      <!-- here will be buttons and a card -->
+
+      <div class="static border-black border-2 flex flex-col justify-center">
+        <!-- images -->
+        <div class="m-auto px-0 md">
+          <img
+            class="w-fit m-2 h-72"
+            src="https://images.pexels.com/photos/29191749/pexels-photo-29191749/free-photo-of-traditional-farmer-in-rural-vietnamese-setting.jpeg?auto=compress&cs=tinysrgb&w=800&lazy=load"
+            alt="free-photo-of-traditional-farmer-in-rural-vietnamese-setting"
+          />
+        </div>
+        <!-- Separator line -->
+        <div class="border-t border-black border-2"></div>
+        <!-- text  -->
+        <div class="m-auto px-0">
+          <h1>free-photo-of-traditional-farmer-in-rural-vietnamese-setting</h1>
+        </div>
+        <div class="flex justify-center ">
+            <button class="bg-blue-500 text-white px-4 py-2 rounded m-auto">Previous</button>
+            <button class="bg-green-500 text-white px-4 py-2 rounded m-auto" >Next</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
