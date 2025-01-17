@@ -17,13 +17,14 @@ function customRender(reactElement,container)
     container.appendChild(domElement);
 }
 const mainContainer = document.querySelector('#root');
+// can use document.getElementById too  
 const reactElement = {
     type:'a',
     props:{
         href:'https://google.com',
         target:'_blank',
     },
-    children:'Click me to visit Google...'
+    children:'Dekh kya raha h click kr na'
 };
 
 customRender(reactElement,mainContainer);

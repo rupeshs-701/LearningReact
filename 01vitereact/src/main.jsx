@@ -1,18 +1,14 @@
-import React  from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App.jsx";
 
-
-function MyApp()
-{
-    return(   
-  
-        <div>
-            <h1>Custom App!!</h1>
-            {/* In JavaScript, if you add a line break immediately after return, it will not consider the code following it as the return value. */}
-        </div>
-       
-    )
+function MyApp() {
+  return (
+    <div>
+      <h1>Custom App!!</h1>
+      {/* In JavaScript, if you add a line break immediately after return, it will not consider the code following it as the return value. */}
+    </div>
+  );
 }
 
 // const reactElement = {
@@ -23,7 +19,6 @@ function MyApp()
 //     },
 //     children:'Click me to visit Google...'
 // };
-
 
 // const anotherElement = (
 //     <a href = "https://google.com" target = "_blank">Visit Google</a>
@@ -47,8 +42,9 @@ function MyApp()
 
 // )
 
-
-ReactDOM.createRoot(document.getElementById('root')).
-render(
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <React.StrictMode>
     <App />
-)
+  </React.StrictMode>
+);
+//its your choice whether to have react strict mode or not
