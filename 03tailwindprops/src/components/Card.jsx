@@ -1,9 +1,9 @@
-import React from "react";
+ import React from "react";
 
 function Card({username="Unknown",btntext})
 {   console.log(username);
     return (
-<>
+<> 
 
 <a href="#" className="block max-w-sm p-6 bg-white border m-4 border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
 
